@@ -1,0 +1,31 @@
+
+<% if @product.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+    <ul>
+    <% @product.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+<!-- this is the messages for the validations, not the flash messages! those can be found in the controlle and views/layouts/application -->
+<!-- include this pluralize message in every form -->
+
+
+<%= form_for product do |f| %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :description%>
+  <%= f.text_area :description %>
+
+  <%= f.label :price_in_cents%>
+  <%= f.number_field :price_in_cents %>
+
+
+  <%= f.submit "Submit" %>
+
+<% end %>

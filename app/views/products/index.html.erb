@@ -1,0 +1,14 @@
+
+<% @products.each do |product|%>
+<ul>
+  <li>
+
+    <p> <%= link_to(product.name, product_path(@product))  %> </p>
+    <p><%= product.description %></p>
+    <p><%= product.price_in_dollars %> </p>
+  </li>
+
+</ul>
+<% end %>
+
+<%= link_to("Add a new Product", new_product_path) %>
